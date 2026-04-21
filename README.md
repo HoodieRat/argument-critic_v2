@@ -1,5 +1,22 @@
 # Argument Critic
 
+## Install on Windows
+
+This is the easiest path for normal users.
+
+1. Open the latest v2 release on GitHub:
+	`https://github.com/HoodieRat/argument-critic_v2/releases/latest`
+2. Under `Assets`, download `Argument-Critic-Setup.exe`.
+3. Run the installer.
+4. Launch Argument Critic from the Start Menu or desktop shortcut.
+5. In the app, open Settings and choose `Sign in with GitHub`.
+
+If you are not a programmer, use the installer release above. Do not use `Install Argument Critic.cmd` unless you are running from source.
+
+Need more hand-holding? See [INSTALL.md](INSTALL.md) or [docs/windows-guide.md](docs/windows-guide.md).
+
+## What It Is
+
 Argument Critic is a local Windows desktop app that helps you think more clearly.
 
 It does not just chat back at you. It helps you develop an idea, challenge weak reasoning, save open questions, search older sessions, inspect screenshots, and generate structured reports you can come back to later.
@@ -29,18 +46,6 @@ Website: https://hoodierat.github.io/argument-critic/
 - your sessions, questions, and reports are saved locally
 - it is built around clarity and critique, not generic assistant fluff
 - it gives you a repeatable place to return to hard problems
-
-## Windows Quick Start
-
-This is the easiest path for normal users.
-
-1. Open the latest release on GitHub.
-2. Download `Argument-Critic-Setup.exe`.
-3. Run the installer.
-4. Launch Argument Critic from the Start Menu or desktop shortcut.
-5. In the app, open Settings and choose `Sign in with GitHub`.
-
-Need more hand-holding? See [INSTALL.md](INSTALL.md) or [docs/windows-guide.md](docs/windows-guide.md).
 
 ## What The Installer Does
 

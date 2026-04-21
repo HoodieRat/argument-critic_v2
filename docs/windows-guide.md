@@ -14,11 +14,14 @@ You do not need to know how to code.
 
 ## The Easy Install Path
 
-1. Open the latest release page on GitHub.
-2. Download `Argument-Critic-Setup.exe`.
+1. Open the latest v2 release page on GitHub:
+	`https://github.com/HoodieRat/argument-critic_v2/releases/latest`
+2. Under `Assets`, download `Argument-Critic-Setup.exe`.
 3. Open the installer.
 4. Follow the Windows install prompts.
 5. Launch Argument Critic from the Start Menu or desktop shortcut.
+
+If you are not trying to run the project from source code, this is the path you want.
 
 ## What To Expect During Install
 

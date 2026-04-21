@@ -5,12 +5,14 @@ This is the normal user install path.
 ## Fast Path
 
 1. Open the latest release page:
-   `https://github.com/HoodieRat/argument-critic/releases/latest`
-2. Download `Argument-Critic-Setup.exe`.
+   `https://github.com/HoodieRat/argument-critic_v2/releases/latest`
+2. Under `Assets`, download `Argument-Critic-Setup.exe`.
 3. Open the installer.
 4. Finish the Windows install prompts.
 5. Launch Argument Critic from the Start Menu or desktop shortcut.
 6. Open Settings and click `Sign in with GitHub`.
+
+If you are a normal user, stop here. You do not need the source checkout path below.
 
 ## What This Installer Does
 
