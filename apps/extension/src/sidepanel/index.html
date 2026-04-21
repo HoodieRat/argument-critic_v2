@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Argument Critic</title>
+    <script>
+      (function () {
+        var themeKey = "argumentCriticThemePreference";
+        var densityKey = "argumentCriticDensityPreference";
+
+        var isTheme = function (value) {
+          return value === "studio" || value === "slate" || value === "forest";
+        };
+
+        var isDensity = function (value) {
+          return value === "compact" || value === "comfortable";
+        };
+
+        var applyPreferences = function (theme, density) {
+          document.documentElement.dataset.theme = isTheme(theme) ? theme : "studio";
+          document.documentElement.dataset.density = isDensity(density) ? density : "compact";
+        };
+
+        var resolveReady = function () {};
+        var isReadyResolved = false;
+        var bootState = {
+          ready: new Promise(function (resolve) {
+            resolveReady = resolve;
+          })
+        };
+
+        window.__argumentCriticSidepanelBoot = bootState;
+
+        var finishBoot = function (theme, density) {
+          applyPreferences(theme, density);
+          if (!isReadyResolved) {
+            isReadyResolved = true;
+            resolveReady();
+          }
+        };
+
+        var cachedTheme = null;
+        var cachedDensity = null;
+
+        try {
+          cachedTheme = window.localStorage.getItem(themeKey);
+          cachedDensity = window.localStorage.getItem(densityKey);
+        } catch {
+          cachedTheme = null;
+          cachedDensity = null;
+        }
+
+        applyPreferences(cachedTheme, cachedDensity);
+
+        var chromeStorage = window.chrome && window.chrome.storage && window.chrome.storage.local ? window.chrome.storage.local : null;
+        if (!chromeStorage) {
+          finishBoot(cachedTheme, cachedDensity);
+          return;
+        }
+
+        try {
+          chromeStorage.get([themeKey, densityKey], function (result) {
+            var storedTheme = result && isTheme(result[themeKey]) ? result[themeKey] : cachedTheme;
+            var storedDensity = result && isDensity(result[densityKey]) ? result[densityKey] : cachedDensity;
+
+            try {
+              if (isTheme(storedTheme)) {
+                window.localStorage.setItem(themeKey, storedTheme);
+              }
+              if (isDensity(storedDensity)) {
+                window.localStorage.setItem(densityKey, storedDensity);
+              }
+            } catch {
+              // Ignore cache write failures and continue with the best available values.
+            }
+
+            finishBoot(storedTheme, storedDensity);
+          });
+        } catch {
+          finishBoot(cachedTheme, cachedDensity);
+        }
+      })();
+    </script>
+    <script type="module" src="./main.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

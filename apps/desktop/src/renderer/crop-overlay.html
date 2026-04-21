@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Select Capture Region</title>
+    <script>
+      try {
+        var storedTheme = window.localStorage.getItem("argumentCriticThemePreference");
+        document.documentElement.dataset.theme = storedTheme === "slate" || storedTheme === "forest" ? storedTheme : "studio";
+      } catch {
+        document.documentElement.dataset.theme = "studio";
+      }
+    </script>
+    <style>
+      :root,
+      :root[data-theme="studio"] {
+        color-scheme: light;
+        --overlay-backdrop: rgba(63, 50, 39, 0.28);
+        --selection-border: #9e3d22;
+        --selection-fill: rgba(158, 61, 34, 0.16);
+        --hud-bg: rgba(255, 251, 245, 0.9);
+        --hud-text: #3f3227;
+        --hud-shadow: 0 18px 40px rgba(63, 50, 39, 0.22);
+        --selection-shadow: 0 0 0 9999px rgba(63, 50, 39, 0.3);
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      :root[data-theme="slate"] {
+        color-scheme: dark;
+        --overlay-backdrop: rgba(15, 20, 25, 0.42);
+        --selection-border: #8cb2f1;
+        --selection-fill: rgba(93, 143, 219, 0.18);
+        --hud-bg: rgba(17, 24, 31, 0.82);
+        --hud-text: #edf3f8;
+        --hud-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        --selection-shadow: 0 0 0 9999px rgba(15, 20, 25, 0.42);
+      }
+
+      :root[data-theme="forest"] {
+        color-scheme: dark;
+        --overlay-backdrop: rgba(13, 21, 17, 0.42);
+        --selection-border: #74c19a;
+        --selection-fill: rgba(63, 159, 112, 0.18);
+        --hud-bg: rgba(16, 24, 19, 0.84);
+        --hud-text: #eff6f1;
+        --hud-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        --selection-shadow: 0 0 0 9999px rgba(13, 21, 17, 0.42);
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #101010;
+      }
+
+      body {
+        cursor: crosshair;
+      }
+
+      #preview {
+        position: fixed;
+        inset: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+
+      #preview::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--overlay-backdrop);
+      }
+
+      #selection {
+        position: fixed;
+        display: none;
+        border: 2px solid var(--selection-border);
+        background: var(--selection-fill);
+        box-shadow: var(--selection-shadow);
+      }
+
+      #hud {
+        position: fixed;
+        left: 24px;
+        bottom: 24px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: var(--hud-bg);
+        color: var(--hud-text);
+        max-width: 24rem;
+        line-height: 1.45;
+        box-shadow: var(--hud-shadow);
+      }
+
+      #hud strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preview"></div>
+    <div id="selection"></div>
+    <div id="hud">
+      <strong>Select a region</strong>
+      Drag to choose the crop area. Release to confirm. Press Esc to cancel.
+    </div>
+    <script type="module" src="./crop-overlay.ts"></script>
+  </body>
+</html>
