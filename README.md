@@ -4,8 +4,7 @@
 
 This is the easiest path for normal users.
 
-1. Open the latest v2 release on GitHub:
-	`https://github.com/HoodieRat/argument-critic_v2/releases/latest`
+1. Open the [latest v2 release on GitHub](https://github.com/HoodieRat/argument-critic_v2/releases/latest).
 2. Under `Assets`, download `Argument-Critic-Setup.exe`.
 3. Run the installer.
 4. Launch Argument Critic from the Start Menu or desktop shortcut.

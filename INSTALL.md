@@ -4,8 +4,7 @@ This is the normal user install path.
 
 ## Fast Path
 
-1. Open the latest release page:
-   `https://github.com/HoodieRat/argument-critic_v2/releases/latest`
+1. Open the [latest v2 release page](https://github.com/HoodieRat/argument-critic_v2/releases/latest).
 2. Under `Assets`, download `Argument-Critic-Setup.exe`.
 3. Open the installer.
 4. Finish the Windows install prompts.
