@@ -203,85 +203,79 @@ export function ChatView(props: ChatViewProps) {
 
   return (
     <section className="chat">
-      <div className="chat__header-shell card compact-card">
-        <div className="chat__header">
-          <div className="chat__heading">
-            <div className="chat__heading-topline">
-              <span className="eyebrow">{mode.label}</span>
-              <span className="count-badge">{laneSessionCountLabel}</span>
-            </div>
-            <h2>{mode.channelTitle}</h2>
-          </div>
+      <div className="chat__header">
+        <div className="chat__heading">
+          <span className="eyebrow">{mode.label}</span>
+          <h2>{mode.channelTitle}</h2>
+          <p className="chat__heading-meta">{laneSessionCountLabel}</p>
+        </div>
 
-          <div className="chat-session-toolbar">
-            <span className="chat-session-toolbar__label">Session</span>
+        <div className="chat-session-toolbar">
+          <span className="chat-session-toolbar__label">Session</span>
 
-            {isRenamingSession ? (
-              <div className="session-menu__rename-row chat-session-toolbar__row chat-session-toolbar__rename">
-                <input
-                  value={titleDraft}
-                  onChange={(event) => setTitleDraft(event.target.value)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter") {
-                      event.preventDefault();
-                      if (canRenameSession) {
-                        props.onRenameSession(titleDraft);
-                        setIsRenamingSession(false);
-                      }
-                    }
-
-                    if (event.key === "Escape") {
-                      setTitleDraft(props.currentSession?.title ?? "");
-                      setIsRenamingSession(false);
-                    }
-                  }}
-                  placeholder="Rename this session"
-                  disabled={!props.currentSession || props.busy}
-                />
-                <div className="chat-session-toolbar__rename-actions">
-                  <button
-                    className="primary-button"
-                    type="button"
-                    onClick={() => {
+          {isRenamingSession ? (
+            <div className="session-menu__rename-row chat-session-toolbar__row chat-session-toolbar__rename">
+              <input
+                value={titleDraft}
+                onChange={(event) => setTitleDraft(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    event.preventDefault();
+                    if (canRenameSession) {
                       props.onRenameSession(titleDraft);
                       setIsRenamingSession(false);
-                    }}
-                    disabled={!canRenameSession || props.busy}
-                  >
-                    Save
-                  </button>
-                  <button
-                    className="ghost-button"
-                    type="button"
-                    onClick={() => {
-                      setTitleDraft(props.currentSession?.title ?? "");
-                      setIsRenamingSession(false);
-                    }}
-                    disabled={props.busy}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="chat-session-toolbar__row">
-                <select className="chat-session-toolbar__select" value={sessionSelectValue} onChange={(event) => props.onSelectSession(event.target.value)}>
-                  {laneSessions.length === 0 ? <option value="">No sessions yet</option> : null}
-                  {laneSessions.map((session) => (
-                    <option key={session.id} value={session.id}>
-                      {session.title}
-                    </option>
-                  ))}
-                </select>
-                <button className="ghost-button chat-session-toolbar__icon-button" type="button" onClick={() => props.onCreateSession(props.mode)} disabled={props.busy} title="New session">
-                  +
-                </button>
-                <button className="ghost-button chat-session-toolbar__compact-button" type="button" onClick={() => setIsRenamingSession(true)} disabled={!props.currentSession || props.busy}>
-                  Rename
-                </button>
-              </div>
-            )}
-          </div>
+                    }
+                  }
+
+                  if (event.key === "Escape") {
+                    setTitleDraft(props.currentSession?.title ?? "");
+                    setIsRenamingSession(false);
+                  }
+                }}
+                placeholder="Rename this session"
+                disabled={!props.currentSession || props.busy}
+              />
+              <button
+                className="primary-button"
+                type="button"
+                onClick={() => {
+                  props.onRenameSession(titleDraft);
+                  setIsRenamingSession(false);
+                }}
+                disabled={!canRenameSession || props.busy}
+              >
+                Save
+              </button>
+              <button
+                className="ghost-button"
+                type="button"
+                onClick={() => {
+                  setTitleDraft(props.currentSession?.title ?? "");
+                  setIsRenamingSession(false);
+                }}
+                disabled={props.busy}
+              >
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <div className="chat-session-toolbar__row">
+              <select className="chat-session-toolbar__select" value={sessionSelectValue} onChange={(event) => props.onSelectSession(event.target.value)}>
+                {laneSessions.length === 0 ? <option value="">No sessions yet</option> : null}
+                {laneSessions.map((session) => (
+                  <option key={session.id} value={session.id}>
+                    {session.title}
+                  </option>
+                ))}
+              </select>
+              <button className="ghost-button chat-session-toolbar__icon-button" type="button" onClick={() => props.onCreateSession(props.mode)} disabled={props.busy} title="New session">
+                +
+              </button>
+              <button className="ghost-button chat-session-toolbar__compact-button" type="button" onClick={() => setIsRenamingSession(true)} disabled={!props.currentSession || props.busy}>
+                Rename
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -309,7 +303,7 @@ export function ChatView(props: ChatViewProps) {
       </div>
 
       <form
-        className={`composer card compact-card ${dragActive ? "composer--dragging" : ""}`}
+        className={`composer ${dragActive ? "composer--dragging" : ""}`}
         onDragEnter={(event) => {
           event.preventDefault();
           setDragActive(true);
@@ -363,7 +357,7 @@ export function ChatView(props: ChatViewProps) {
           </div>
         ) : null}
 
-        <textarea value={draft} onChange={(event) => setDraft(event.target.value)} placeholder={mode.prompt} rows={2} />
+        <textarea value={draft} onChange={(event) => setDraft(event.target.value)} placeholder={mode.prompt} rows={3} />
         <div className="composer__actions">
           <div className="composer__actions-primary">
             <button className="primary-button" type="submit" disabled={props.busy}>
@@ -372,8 +366,6 @@ export function ChatView(props: ChatViewProps) {
             <button className="ghost-button" type="button" onClick={() => fileInputRef.current?.click()} disabled={props.busy}>
               Attach files
             </button>
-          </div>
-          <div className="composer__actions-secondary">
             <button className="ghost-button" type="button" onClick={() => void props.onCancel()} disabled={!props.busy}>
               Stop
             </button>
@@ -390,168 +382,167 @@ export function ChatView(props: ChatViewProps) {
               </button>
             ))}
           </div>
+          <p className="composer__session-note">Drop files here or use Attach files. Cropshots land here automatically.</p>
         </div>
-        <p className="composer__session-note">Drop files here or use Attach files. Cropshots land here automatically.</p>
       </form>
 
-      <div className="chat-post-composer card compact-card">
-        <div className="chat-post-composer__grid">
-          <div className={`chat-model-inline ${props.tokenConfigured ? "" : "chat-model-inline--signed-out"}`}>
-            <span className="eyebrow">Model</span>
-            {props.tokenConfigured ? (
-              <select
-                value={modelSelectValue}
-                onChange={(event) => void props.onUpdateSettings({ githubModel: event.target.value })}
-                disabled={props.busy || props.availableGitHubModels.length === 0}
-              >
-                {props.availableGitHubModels.length === 0 ? <option value="">No models loaded yet</option> : null}
-                {Object.entries(
-                  props.availableGitHubModels.reduce<Record<string, RuntimeSettings["availableGitHubModels"]>>((groups, model) => {
-                    groups[model.vendor] ??= [];
-                    groups[model.vendor].push(model);
-                    return groups;
-                  }, {})
-                ).map(([vendor, models]) => (
-                  <optgroup key={vendor} label={vendor}>
-                    {models.map((model) => (
-                      <option key={model.id} value={model.id}>
-                        {formatModelOptionLabel(model)}
-                      </option>
-                    ))}
-                  </optgroup>
-                ))}
-              </select>
-            ) : (
-              <button className="ghost-button chat-model-inline__sign-in-button" type="button" onClick={props.onOpenSettings}>
-                Sign in with GitHub
-              </button>
-            )}
-          </div>
+      <details className="chat-post-composer">
+        <summary className="chat-post-composer__summary">Model & settings</summary>
+        <div className="chat-post-composer__body">
+        <div className={`chat-model-inline ${props.tokenConfigured ? "" : "chat-model-inline--signed-out"}`}>
+          <span className="eyebrow">Model</span>
+          {props.tokenConfigured ? (
+            <select
+              value={modelSelectValue}
+              onChange={(event) => void props.onUpdateSettings({ githubModel: event.target.value })}
+              disabled={props.busy || props.availableGitHubModels.length === 0}
+            >
+              {props.availableGitHubModels.length === 0 ? <option value="">No models loaded yet</option> : null}
+              {Object.entries(
+                props.availableGitHubModels.reduce<Record<string, RuntimeSettings["availableGitHubModels"]>>((groups, model) => {
+                  groups[model.vendor] ??= [];
+                  groups[model.vendor].push(model);
+                  return groups;
+                }, {})
+              ).map(([vendor, models]) => (
+                <optgroup key={vendor} label={vendor}>
+                  {models.map((model) => (
+                    <option key={model.id} value={model.id}>
+                      {formatModelOptionLabel(model)}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          ) : (
+            <button className="ghost-button chat-model-inline__sign-in-button" type="button" onClick={props.onOpenSettings}>
+              Sign in with GitHub
+            </button>
+          )}
+        </div>
 
-          <div className="chat-inline-tools">
-            <div className="chat-response-controls">
-              <div className="chat-response-controls__topline">
-                <div className="chat-response-controls__summary">
-                  <strong>Criticality</strong>
-                </div>
-
-                <div className="chat-response-controls__status">
-                  <span className="chat-response-controls__value">{formatCriticalityMultiplier(previewCriticalityMultiplier)}</span>
-                  <span className="detail-line">{describeCriticalityTone(previewCriticalityMultiplier)}</span>
-                </div>
-
-                <button
-                  className="ghost-button chat-response-controls__reset"
-                  type="button"
-                  onClick={() => {
-                    const defaultSliderValue = criticalityMultiplierToSliderValue(DEFAULT_CRITICALITY_MULTIPLIER);
-                    setCriticalitySliderValue(defaultSliderValue);
-                    void props.onUpdateSessionSettings({ criticalityMultiplier: DEFAULT_CRITICALITY_MULTIPLIER });
-                  }}
-                  disabled={!props.currentSession || props.busy || !canResetCriticality}
-                >
-                  Reset
-                </button>
-              </div>
-
-              <div className="chat-response-controls__toggles">
-                <label className="chat-compact-toggle" title="Keep answers short, organized, and direct in this chat.">
-                  <input
-                    type="checkbox"
-                    checked={structuredOutputEnabled}
-                    onChange={(event) => void props.onUpdateSessionSettings({ structuredOutputEnabled: event.target.checked })}
-                    disabled={!props.currentSession || props.busy}
-                  />
-                  <span>Structured</span>
-                </label>
-
-                <label className="chat-compact-toggle" title="Extract visible text from screenshots and image attachments before the reply. Turn this off for full visual inspection instead.">
-                  <input
-                    type="checkbox"
-                    checked={imageTextExtractionEnabled}
-                    onChange={(event) => void props.onUpdateSessionSettings({ imageTextExtractionEnabled: event.target.checked })}
-                    disabled={!props.currentSession || props.busy}
-                  />
-                  <span>Images as text</span>
-                </label>
-              </div>
-
-              <div className="chat-response-controls__meter">
-                <span className="chat-response-controls__edge-label">0.1x</span>
-
-                <input
-                  type="range"
-                  min={-1}
-                  max={1}
-                  step={0.05}
-                  value={criticalitySliderValue}
-                  onChange={(event) => setCriticalitySliderValue(Number(event.target.value))}
-                  onMouseUp={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
-                  onTouchEnd={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
-                  onKeyUp={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
-                  onBlur={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
-                  disabled={!props.currentSession || props.busy}
-                />
-                <span className="chat-response-controls__edge-label">10x</span>
-              </div>
-
-              <div className="chat-response-controls__labels">
-                <span>gentle</span>
-                <span>1x default</span>
-                <span>harsh</span>
-              </div>
+        <div className="chat-inline-tools">
+        <div className="chat-response-controls">
+          <div className="chat-response-controls__header">
+            <div className="chat-response-controls__summary">
+              <strong>Criticality</strong>
             </div>
 
-            {selectedModel?.supportsThinking && props.modelAccess.backend === "copilot" ? (
-              <details className="chat-inline-tools__advanced">
-                <summary>Thinking</summary>
-                <div className="chat-inline-tools__advanced-body">
-                  <label className="checkbox-row">
-                    <input
-                      type="checkbox"
-                      checked={props.githubModelThinkingEnabled}
-                      onChange={(event) => void props.onUpdateSettings({ githubModelThinkingEnabled: event.target.checked })}
-                    />
-                    <span>
-                      <strong>Extra reasoning</strong>
-                    </span>
-                  </label>
+            <div className="chat-response-controls__status">
+              <span className="chat-response-controls__value">{formatCriticalityMultiplier(previewCriticalityMultiplier)}</span>
+              <span className="detail-line">{describeCriticalityTone(previewCriticalityMultiplier)}</span>
+            </div>
 
-                  {props.githubModelThinkingEnabled && effortOptions.length > 0 ? (
-                    <label className="field">
-                      <span>Effort</span>
-                      <select value={effortValue} onChange={(event) => void props.onUpdateSettings({ githubModelReasoningEffort: event.target.value || null })}>
-                        {effortOptions.map((effort) => (
-                          <option key={effort} value={effort}>
-                            {effort}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  ) : null}
+            <button
+              className="ghost-button chat-response-controls__reset"
+              type="button"
+              onClick={() => {
+                const defaultSliderValue = criticalityMultiplierToSliderValue(DEFAULT_CRITICALITY_MULTIPLIER);
+                setCriticalitySliderValue(defaultSliderValue);
+                void props.onUpdateSessionSettings({ criticalityMultiplier: DEFAULT_CRITICALITY_MULTIPLIER });
+              }}
+              disabled={!props.currentSession || props.busy || !canResetCriticality}
+            >
+              Reset
+            </button>
 
-                  {canEditThinkingBudget ? (
-                    <label className="field">
-                      <span>Budget</span>
-                      <input
-                        type="number"
-                        min={selectedModel?.minThinkingBudget ?? 0}
-                        max={selectedModel?.maxThinkingBudget ?? 0}
-                        step={256}
-                        value={props.githubModelThinkingBudget ?? selectedModel?.minThinkingBudget ?? ""}
-                        onChange={(event) => {
-                          const nextValue = Number(event.target.value);
-                          void props.onUpdateSettings({ githubModelThinkingBudget: Number.isFinite(nextValue) ? nextValue : null });
-                        }}
-                      />
-                    </label>
-                  ) : null}
-                </div>
-              </details>
-            ) : null}
+            <label className="chat-compact-toggle" title="Keep answers short, organized, and direct in this chat.">
+              <input
+                type="checkbox"
+                checked={structuredOutputEnabled}
+                onChange={(event) => void props.onUpdateSessionSettings({ structuredOutputEnabled: event.target.checked })}
+                disabled={!props.currentSession || props.busy}
+              />
+              <span>Structured</span>
+            </label>
+
+            <label className="chat-compact-toggle" title="Extract visible text from screenshots and image attachments before the reply. Turn this off for full visual inspection instead.">
+              <input
+                type="checkbox"
+                checked={imageTextExtractionEnabled}
+                onChange={(event) => void props.onUpdateSessionSettings({ imageTextExtractionEnabled: event.target.checked })}
+                disabled={!props.currentSession || props.busy}
+              />
+              <span>Images as text</span>
+            </label>
+          </div>
+
+          <div className="chat-response-controls__meter">
+            <span className="chat-response-controls__edge-label">0.1x</span>
+
+            <input
+              type="range"
+              min={-1}
+              max={1}
+              step={0.05}
+              value={criticalitySliderValue}
+              onChange={(event) => setCriticalitySliderValue(Number(event.target.value))}
+              onMouseUp={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
+              onTouchEnd={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
+              onKeyUp={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
+              onBlur={(event) => commitCriticalitySliderValue(Number(event.currentTarget.value))}
+              disabled={!props.currentSession || props.busy}
+            />
+            <span className="chat-response-controls__edge-label">10x</span>
+          </div>
+
+          <div className="chat-response-controls__labels">
+            <span>gentle</span>
+            <span>1x default</span>
+            <span>harsh</span>
           </div>
         </div>
-      </div>
+
+        {selectedModel?.supportsThinking && props.modelAccess.backend === "copilot" ? (
+          <details className="chat-inline-tools__advanced">
+            <summary>Thinking</summary>
+            <div className="chat-inline-tools__advanced-body">
+              <label className="checkbox-row">
+                <input
+                  type="checkbox"
+                  checked={props.githubModelThinkingEnabled}
+                  onChange={(event) => void props.onUpdateSettings({ githubModelThinkingEnabled: event.target.checked })}
+                />
+                <span>
+                  <strong>Extra reasoning</strong>
+                </span>
+              </label>
+
+              {props.githubModelThinkingEnabled && effortOptions.length > 0 ? (
+                <label className="field">
+                  <span>Effort</span>
+                  <select value={effortValue} onChange={(event) => void props.onUpdateSettings({ githubModelReasoningEffort: event.target.value || null })}>
+                    {effortOptions.map((effort) => (
+                      <option key={effort} value={effort}>
+                        {effort}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : null}
+
+              {canEditThinkingBudget ? (
+                <label className="field">
+                  <span>Budget</span>
+                  <input
+                    type="number"
+                    min={selectedModel?.minThinkingBudget ?? 0}
+                    max={selectedModel?.maxThinkingBudget ?? 0}
+                    step={256}
+                    value={props.githubModelThinkingBudget ?? selectedModel?.minThinkingBudget ?? ""}
+                    onChange={(event) => {
+                      const nextValue = Number(event.target.value);
+                      void props.onUpdateSettings({ githubModelThinkingBudget: Number.isFinite(nextValue) ? nextValue : null });
+                    }}
+                  />
+                </label>
+              ) : null}
+            </div>
+          </details>
+        ) : null}
+        </div>
+        </div>
+      </details>
     </section>
   );
 }

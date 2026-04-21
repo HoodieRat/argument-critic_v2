@@ -4,6 +4,10 @@
   "private": true,
   "description": "Local desktop app for pressure-testing ideas with persistent questions, structured critique, and GitHub-hosted model access.",
   "author": "HoodieRat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HoodieRat/argument-critic_v2.git"
+  },
   "type": "module",
   "main": "apps/desktop/dist/electron/main.js",
   "packageManager": "pnpm@10.0.0",

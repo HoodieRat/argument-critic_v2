@@ -2578,11 +2578,31 @@ h2 {
 .chat-post-composer {
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  padding: 0.82rem 0.92rem;
   border-radius: 16px;
   border: 1px solid var(--border-soft);
   background: var(--surface-muted-bg);
+}
+
+.chat-post-composer__summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.82rem 0.92rem;
+  color: var(--ink-3);
+  user-select: none;
+}
+
+.chat-post-composer[open] .chat-post-composer__summary {
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.chat-post-composer__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 0 0.92rem 0.82rem;
 }
 
 .attachment-strip {

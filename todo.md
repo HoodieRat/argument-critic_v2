@@ -1,3 +1,10 @@
+# Chat Drawer Packing Pass
+
+- [x] Move the post-composer model and session controls into a collapsed drawer in `ChatView.tsx` so the transcript and prompt keep the vertical space by default.
+- [x] Add drawer summary and body styles in `styles.css` so the packed-away controls stay easy to open without reintroducing oversized fields.
+- [x] Add repository metadata to `package.json` so staged Windows packaging can generate release metadata without needing `.git` present.
+- [x] Rebuild the Windows installer and confirm a fresh `dist/release/Argument-Critic-Setup.exe` is ready to publish.
+
 # Reports V2 Ship Pass
 
 - [x] Rebuild the Reports workspace so the latest report is the primary surface and older reports move into compact history instead of taking over the panel.
