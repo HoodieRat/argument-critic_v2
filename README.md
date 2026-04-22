@@ -20,7 +20,15 @@ Argument Critic is a local Windows desktop app that helps you think more clearly
 
 It does not just chat back at you. It helps you develop an idea, challenge weak reasoning, save open questions, search older sessions, inspect screenshots, and generate structured reports you can come back to later.
 
-Website: https://hoodierat.github.io/argument-critic/
+Website: https://hoodierat.github.io/argument-critic_v2/
+
+## GitHub Quick Links
+
+- [Latest Windows release](https://github.com/HoodieRat/argument-critic_v2/releases/latest)
+- [Install guide](INSTALL.md)
+- [Windows guide](docs/windows-guide.md)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Project site](https://hoodierat.github.io/argument-critic_v2/)
 
 ## Who It Is For
 
@@ -32,12 +40,24 @@ Website: https://hoodierat.github.io/argument-critic/
 
 - Chat: talk through an idea and make it clearer
 - Critic: challenge assumptions, contradictions, and weak logic
-- Questions: keep track of unresolved questions so they do not disappear
-- Analysis: inspect uncertainty types, critique breakdowns, framework alignment, and familiarity signals
-- Records: search past sessions, reports, captures, and saved facts
-- Reports: turn messy work into a structured summary
-- Capture: take a screenshot or crop part of the screen, extract visible text by default, or switch back to full image inspection per chat
-- Research: review imported outside research in a separate lane
+- Reviewer: inspect imported outside research in a separate evidence-review lane
+- Questions: keep track of unresolved questions, answer them later, and reopen them when needed
+- Analysis: inspect uncertainty types, critique breakdowns, context alignment, familiarity signals, and comparison views
+- Records: query saved sessions, reports, captures, contradictions, and question history through the Records panel and Database mode
+- Reports: turn messy work into a structured session overview, contradictions report, or research summary
+- Capture: take a screenshot or crop part of the screen, attach files, extract visible text by default, or switch back to direct image inspection per session
+- Settings: sign in with GitHub, review your current model catalog, change theme and density, and control runtime options
+
+## What Is New In The Current Build
+
+- Desktop-first workflow: the Electron drawer window is now the primary shell, with the old browser helper path kept as a legacy option
+- Reviewer lane: imported outside material now lives in a separate review lane so evidence checks stay separate from normal chat
+- Attachments: files and cropshots now queue directly in the composer before you send the next turn
+- Analysis Workspace: Focus, Compare, and All views let you inspect one lens, pressure-test two lenses, or scan the whole board
+- Reports history: reports stay session-scoped, latest-first, and grouped by report type
+- Theme and density preferences: the workspace now remembers Studio, Slate, or Forest themes and compact or comfortable spacing
+- Question controls: follow-up generation is user-toggleable and automatically pauses once five active unanswered questions are open
+- GitHub model visibility: Settings now shows the current account catalog, the selected model, and why some models may be missing
 
 ## Why People Like It
 
@@ -81,82 +101,103 @@ When the app opens for the first time:
 
 On Windows installs, the app now bundles the GitHub sign-in helper used by the default sign-in path so regular users do not have to install or manage it separately. Manual token entry is still available as an advanced fallback, but ordinary GitHub tokens usually unlock GitHub Models only, not the full Copilot catalog.
 
-## How To Use It
+## How To Use The Current App
 
-### 1. Start In Chat
+### 1. Open Settings First
 
-Use Chat when your idea is still rough.
+Do this once before your first real session.
 
-- explain the idea in plain language
-- ask the app to clarify, organize, or sharpen it
-- use this before moving into critique mode
+- click `Sign in with GitHub`
+- wait for browser approval to finish
+- come back and confirm that Settings shows your current account catalog and selected model
+- if you only see a limited model list, read the warning text in Settings before assuming the app is broken
 
-### 2. Move To Critic
+### 2. Start In Chat
 
-Use Critic when you want pushback.
+Use Chat when the idea is still messy or half-formed.
 
-- find contradictions
-- expose weak assumptions
-- spot missing proof
-- test whether your reasoning actually holds up
+- explain the claim, decision, or argument in plain language
+- use `To Critic` later when the thread is ready for pressure testing
+- use `To Reviewer` if the thread should become evidence review instead of ordinary conversation
+- open `Model & settings` under the composer if you want to change the model or make the session more or less severe with `Criticality`
 
-### 3. Watch The Questions Panel
+### 3. Move To Critic When You Want Pushback
 
-Argument Critic keeps an active queue of unresolved questions.
+Critic is where the app is supposed to be harsh.
 
-This is useful when:
+- use it to hunt for contradictions, weak assumptions, missing proof, and vague definitions
+- send a fuller argument here if you want the Analysis panel to have something substantial to inspect
+- keep using the same session if you want questions, contradictions, and reports to stay grounded in one record
 
-- you need to remember what still needs evidence
-- you want to answer questions later instead of losing them
-- you want a running list of the hardest gaps in your thinking
+### 4. Add Evidence With Files Or Capture
 
-### 4. Use Records When You Need Exact Recall
+You are no longer limited to plain text.
 
-The Records panel is for retrieval, not freeform brainstorming.
+- click `Capture` to take a cropshot from the desktop drawer
+- drag files into the composer or use `Attach files`
+- review the `Ready to send` strip before submitting the next turn
+- screenshots extract visible text by default, but you can still ask for direct visual inspection when the layout or chart matters more than OCR
 
-Use it when you want to ask things like:
+### 5. Use Reviewer For Imported Outside Material
 
-- what did I conclude last week?
-- what contradictions were found in this session?
-- what report already exists on this topic?
+Reviewer is the right place for external evidence, imported threads, or research dumps.
 
-### 5. Use The Analysis Panel To See What Kind Of Problem You Actually Have
+- open Settings
+- expand `Manual fallback and import tools`
+- open `Research import`
+- turn on `Allow GPT-Researcher imports`
+- paste GPT-Researcher JSON or bullet output and click `Import research`
+- switch to the `Reviewer` lane and ask what the imported material actually proves, what it misses, and what still needs checking
 
-The Analysis panel is where the app separates different kinds of pressure on your idea.
+### 6. Watch The Questions Panel
 
-Use it when you want to see:
+Argument Critic keeps a live queue of open questions so gaps do not disappear.
 
-- whether a problem is logical, empirical, definitional, philosophical, or assumption-level
-- which claims are carrying the most uncertainty
-- which critique types dominate the current turn or session
-- how your wording aligns or diverges from a chosen context or tradition
+- answer a question directly in place when you have enough evidence
+- mark it resolved when the gap is closed
+- archive it when it is no longer worth working
+- reopen older questions from history when a claim becomes live again
+- if you do not want the app generating new follow-up questions, turn off `Generate follow-up questions` in Settings
 
-The panel currently includes:
+Question generation pauses automatically once five active unanswered questions are already open.
 
-- Uncertainty Map: sortable items with expandable detail and familiarity markers
-- Critique Breakdown: count and severity summaries by critique type
-- Context Alignment: overlap, divergences, leverage points, and preview alignment for newly added contexts
-- Context Manager: built-in contexts plus user-defined JSON contexts
+### 7. Open Analysis When You Need Structure, Not Just More Chat
 
-### 6. Generate Reports
+The Analysis Workspace separates different kinds of pressure on the same argument.
 
-Reports turn saved work into something easier to review or share.
+- open Analysis after a fuller Critic turn
+- use `Focus` when you want one lens at a time
+- use `Compare` when you want a primary lens plus `Comparison snapshot` and `Comparison lens detail`
+- use `All` when you want a compact board view of the whole analysis
+- use the Context Manager to keep built-in or custom JSON contexts available for alignment checks
 
-Use them when you want:
+If you see `No analysis yet`, send a more substantive argument in Critic and reopen Analysis.
 
-- a structured summary
-- a checkpoint before making a decision
-- a cleaner version of what happened across a session
+### 8. Use Records For Exact Recall
 
-### 7. Use Capture For Visual Evidence
+The Records panel is for retrieval, not brainstorming.
 
-You can capture the whole window or crop part of the screen.
+- ask for exact stored facts, saved reports, contradictions, or question lists
+- use the quick prompts in Database mode when you want fast lookup over stored records
+- enable the interpretive layer if you want a grounded explanation on top of the exact database result
 
-This is useful when:
+### 9. Generate Grounded Reports
 
-- you want to inspect a chart, claim, screenshot, or document excerpt
-- you want the app to extract the visible text from a screenshot before replying
-- you want to switch that chat back to direct image inspection for charts, layouts, or other visual details
+Reports are built from the saved record, not from vague recollection.
+
+- use `Session overview` for the full session state
+- use `Contradictions` when you want the failure points called out directly
+- use `Research summary` when imported evidence is the main object of review
+- revisit older runs from report history or clear history per session when it is no longer useful
+
+### 10. Personalize The Workspace
+
+Several new user-level controls now live in Settings.
+
+- choose the `Studio`, `Slate`, or `Forest` theme
+- switch spacing density between compact and comfortable
+- keep auto-naming on if you want the first real turn to title the session automatically
+- review model access, model counts, and token source in one place
 
 ## What Gets Saved
 
@@ -168,6 +209,7 @@ Argument Critic stores your work locally, including:
 - generated reports
 - captures and attachments
 - optional imported research
+- theme, density, and runtime preferences
 
 Your local data lives under the project data folder and is backed by SQLite.
 
@@ -255,6 +297,8 @@ Argument Critic currently uses:
 
 ### Main commands
 
+- `corepack pnpm app:setup`
+- `corepack pnpm start`
 - `corepack pnpm build`
 - `corepack pnpm --filter @argument-critic/server test`
 - `corepack pnpm run build:legacy-extension`

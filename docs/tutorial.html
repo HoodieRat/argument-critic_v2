@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Argument Critic Tutorial</title>
+    <meta
+      name="description"
+      content="A clear first-session walkthrough for Argument Critic covering sign-in, Chat, Critic, Questions, Analysis, Reports, Capture, Reviewer imports, Records, and Settings."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./index.html">Argument Critic</a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="./index.html">Home</a>
+          <a href="#contents">Contents</a>
+          <a href="#quick-start">Quick start</a>
+          <a href="#analysis">Analysis</a>
+          <a href="#reports">Reports</a>
+          <a href="#reviewer">Reviewer</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero hero--guide">
+          <div class="hero__copy">
+            <p class="eyebrow">Guided Tutorial</p>
+            <h1>Your first good session, start to finish.</h1>
+            <p class="hero__lede">
+              This walkthrough is for normal users. It shows you what to click, what to expect, and what each part of
+              the app is for without turning the setup into homework.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="https://github.com/HoodieRat/argument-critic_v2/releases/latest/download/Argument-Critic-Setup.exe">Download Installer</a>
+              <a class="button button--ghost" href="#quick-start">Start the walkthrough</a>
+              <a class="button button--ghost" href="./index.html">Back to home</a>
+            </div>
+            <ul class="hero__points">
+              <li>Written for first-time users</li>
+              <li>Covers Analysis, Reports, Capture, and Reviewer</li>
+              <li>Short steps with clear expectations</li>
+              <li>Built for the current v2 desktop flow</li>
+            </ul>
+          </div>
+
+          <div class="hero__panel">
+            <div class="hero-card hero-card--signal">
+              <span class="hero-card__label">Before you start</span>
+              <strong>Install the Windows app, launch it, and keep your browser available for GitHub sign-in.</strong>
+            </div>
+            <div class="hero-card hero-card--warm">
+              <span class="hero-card__label">What you will learn</span>
+              <p>How to move from Chat to Critic, open Analysis, generate Reports, attach evidence, import research, and search saved records.</p>
+            </div>
+            <div class="hero-card hero-card--cool">
+              <span class="hero-card__label">Best outcome</span>
+              <p>You finish with one session, one critique pass, one analysis read, and one grounded report you can reopen later.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contents">
+          <div class="section-heading section-heading--wide">
+            <p class="eyebrow">Contents</p>
+            <h2>Jump straight to the part you need.</h2>
+          </div>
+
+          <div class="guide-index">
+            <a class="guide-link-card" href="#quick-start">
+              <span class="guide-link-card__kicker">Start here</span>
+              <h3>Quick start</h3>
+              <p>The shortest path from install to first useful result.</p>
+              <span>Go to quick start</span>
+            </a>
+            <a class="guide-link-card" href="#sign-in">
+              <span class="guide-link-card__kicker">Step 1</span>
+              <h3>Sign in and check models</h3>
+              <p>Use Settings first so the app is connected before your first real turn.</p>
+              <span>Open sign-in guide</span>
+            </a>
+            <a class="guide-link-card" href="#chat-critic">
+              <span class="guide-link-card__kicker">Step 2</span>
+              <h3>Start in Chat, move to Critic</h3>
+              <p>Clarify the idea, then pressure-test it without opening a new workflow too early.</p>
+              <span>See the lane flow</span>
+            </a>
+            <a class="guide-link-card" href="#questions">
+              <span class="guide-link-card__kicker">Step 3</span>
+              <h3>Use Questions properly</h3>
+              <p>Keep the gaps visible, answer them when ready, and avoid losing the hard parts.</p>
+              <span>Open question guide</span>
+            </a>
+            <a class="guide-link-card" href="#analysis">
+              <span class="guide-link-card__kicker">Step 4</span>
+              <h3>Open Analysis</h3>
+              <p>Use Focus, Compare, and All views to see what kind of pressure the argument is under.</p>
+              <span>See analysis walkthrough</span>
+            </a>
+            <a class="guide-link-card" href="#reports">
+              <span class="guide-link-card__kicker">Step 5</span>
+              <h3>Generate Reports</h3>
+              <p>Turn the saved record into a session overview, contradictions report, or research summary.</p>
+              <span>See report steps</span>
+            </a>
+            <a class="guide-link-card" href="#capture">
+              <span class="guide-link-card__kicker">Step 6</span>
+              <h3>Capture and attachments</h3>
+              <p>Bring in screenshots, crops, and files when text alone is not enough.</p>
+              <span>Open capture guide</span>
+            </a>
+            <a class="guide-link-card" href="#reviewer">
+              <span class="guide-link-card__kicker">Step 7</span>
+              <h3>Import outside research</h3>
+              <p>Use Reviewer so external evidence is checked separately from ordinary chat.</p>
+              <span>Open reviewer guide</span>
+            </a>
+            <a class="guide-link-card" href="#records-settings">
+              <span class="guide-link-card__kicker">Step 8</span>
+              <h3>Records and Settings</h3>
+              <p>Find exact saved facts later and personalize the workspace without breaking the flow.</p>
+              <span>Open records guide</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="section section--contrast" id="quick-start">
+          <div class="section-heading section-heading--wide">
+            <p class="eyebrow">Quick start</p>
+            <h2>The shortest useful path through the app.</h2>
+          </div>
+
+          <details class="guide-example">
+            <summary>Use one running example all the way through the tutorial</summary>
+            <div class="guide-example__body">
+              <p class="guide-example__lead">If you do not want to invent your own case while learning, use this one throughout the tutorial:</p>
+              <div class="guide-example__prompt">
+                <span class="guide-example__label">Running example</span>
+                <code>I am considering leaving my product job in six months to start a small consulting practice focused on B2B SaaS onboarding. I want to know whether this is a good decision, what assumptions I am making, and what evidence I still need.</code>
+              </div>
+              <div class="guide-example__result">
+                <span class="guide-example__label">Why this works well</span>
+                <code>It is concrete enough for Critic, open-ended enough for Questions, and realistic enough for Analysis, Reports, Capture, and Reviewer imports.</code>
+              </div>
+            </div>
+          </details>
+
+          <div class="guide-mini-grid">
+            <article class="guide-mini-card">
+              <strong>1</strong>
+              <h3>Open Settings and sign in</h3>
+              <p>Do this before your first real session so the app can load your current model catalog.</p>
+            </article>
+            <article class="guide-mini-card">
+              <strong>2</strong>
+              <h3>Start one Chat session</h3>
+              <p>Explain the idea in plain language and get it into shape before you attack it.</p>
+            </article>
+            <article class="guide-mini-card">
+              <strong>3</strong>
+              <h3>Send it to Critic</h3>
+              <p>Use the same session so questions, contradictions, analysis, and reports stay grounded together.</p>
+            </article>
+            <article class="guide-mini-card">
+              <strong>4</strong>
+              <h3>Open Analysis</h3>
+              <p>Use Focus for one lens at a time or Compare when you want one-vs-one pressure testing.</p>
+            </article>
+            <article class="guide-mini-card">
+              <strong>5</strong>
+              <h3>Generate one report</h3>
+              <p>Use Session overview first. It is the fastest way to see whether the work is becoming coherent.</p>
+            </article>
+            <article class="guide-mini-card">
+              <strong>6</strong>
+              <h3>Come back later</h3>
+              <p>Your session, questions, reports, attachments, and settings persist locally on your machine.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="guide-stack">
+            <article class="guide-step" id="sign-in">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 1</p>
+                  <h3>Open Settings first and finish sign-in</h3>
+                </div>
+                <span class="guide-step__tag">01</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ol class="guide-list">
+                    <li>Open the app.</li>
+                    <li>Click the Settings button.</li>
+                    <li>Click <em>Sign in with GitHub</em>.</li>
+                    <li>Finish the browser approval step.</li>
+                    <li>Return to the app and wait for the catalog to load.</li>
+                  </ol>
+                  <div class="guide-callout">
+                    <strong>What you should see</strong>
+                    <p>Settings should show your selected model, the current account catalog, and a short explanation if some models are unavailable.</p>
+                  </div>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <p class="guide-example__lead">A simple readiness check for a new user:</p>
+                      <div class="guide-example__result">
+                        <span class="guide-example__label">Ready means</span>
+                        <code>I can see a selected model, I can open the model list, and Settings no longer looks like a sign-in screen.</code>
+                      </div>
+                      <ul class="guide-example__list">
+                        <li>If you can choose a model, you are ready to start a real session.</li>
+                        <li>If Settings still looks empty or limited, resolve that first instead of guessing later.</li>
+                      </ul>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel guide-step__panel--signal">
+                  <strong>Why this matters</strong>
+                  <p>Doing sign-in first removes confusion later. You will know right away whether the app is connected and what model access you actually have.</p>
+                  <ul class="guide-chip-list">
+                    <li>Settings</li>
+                    <li>Model catalog</li>
+                    <li>GitHub sign-in</li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="chat-critic">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 2</p>
+                  <h3>Start in Chat, then move the same session to Critic</h3>
+                </div>
+                <span class="guide-step__tag">02</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ol class="guide-list">
+                    <li>Stay in the Chat lane.</li>
+                    <li>Describe the idea, decision, or claim in plain language.</li>
+                    <li>Ask the app to sharpen, organize, or clarify it.</li>
+                    <li>When the wording feels honest enough to challenge, click <em>To Critic</em>.</li>
+                    <li>Ask Critic to test assumptions, contradictions, missing proof, or weak definitions.</li>
+                  </ol>
+                  <div class="guide-callout">
+                    <strong>Best practice</strong>
+                    <p>Do not open a fresh session just to move into Critic. Keeping one continuous session gives Analysis and Reports a better record to work from.</p>
+                  </div>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Chat prompt</span>
+                        <code>I am considering leaving my product job in six months to start a small consulting practice focused on B2B SaaS onboarding. Help me make this idea precise. What exactly is the claim, what assumptions am I making, and what would success look like in year one?</code>
+                      </div>
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Critic prompt</span>
+                        <code>Pressure-test this plan. Where am I relying on wishful thinking? What would have to be true for this consulting idea to fail? Which assumptions need evidence before I act?</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel">
+                  <strong>Use these lane roles</strong>
+                  <ul class="guide-list guide-list--tight">
+                    <li><strong>Chat:</strong> get the idea into shape.</li>
+                    <li><strong>Critic:</strong> apply pressure and expose weaknesses.</li>
+                    <li><strong>Reviewer:</strong> use later for imported outside evidence, not ordinary drafting.</li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="questions">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 3</p>
+                  <h3>Use Questions as your working backlog</h3>
+                </div>
+                <span class="guide-step__tag">03</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ul class="guide-list">
+                    <li>Watch which questions appear after Critic turns.</li>
+                    <li>Answer them directly in place when you have enough evidence.</li>
+                    <li>Mark questions resolved when the gap is closed.</li>
+                    <li>Archive them when they are no longer worth working.</li>
+                    <li>Reopen older questions from history if the issue becomes active again.</li>
+                  </ul>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <p class="guide-example__lead">Using the consulting example, good active questions might look like this:</p>
+                      <div class="guide-example__result">
+                        <span class="guide-example__label">Example question list</span>
+                        <code>- Do I already have proof that buyers will pay for this service?
+- What specific problem am I solving better than an internal operations lead?
+- How many months of savings do I need before leaving salaried work?
+- Am I assuming demand because a few people expressed interest?</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel guide-step__panel--signal">
+                  <strong>What to know</strong>
+                  <p>The question generator can be turned off in Settings, and it automatically stops adding more once five active unanswered questions are open.</p>
+                  <div class="guide-links">
+                    <a href="#records-settings">Jump to Settings</a>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="analysis">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 4</p>
+                  <h3>Open Analysis when you need structure, not just more talk</h3>
+                </div>
+                <span class="guide-step__tag">04</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ol class="guide-list">
+                    <li>After a substantive Critic turn, open the Analysis panel.</li>
+                    <li>Use <em>Focus</em> when you want one lens at a time.</li>
+                    <li>Use <em>Compare</em> when you want the primary read plus <em>Comparison snapshot</em> and <em>Comparison lens detail</em>.</li>
+                    <li>Use <em>All</em> when you want a compact board view of the whole analysis.</li>
+                    <li>Use the Context Manager when you want built-in or custom contexts to shape the alignment read.</li>
+                  </ol>
+                  <div class="guide-callout">
+                    <strong>If Analysis looks empty</strong>
+                    <p>That usually means the argument is still too thin. Go back to Critic, send a fuller version, then reopen Analysis.</p>
+                  </div>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Focus use</span>
+                        <code>Open Focus and look for the strongest uncertainty first. In the consulting example, that might be whether demand is an empirical problem, not just a motivational one.</code>
+                      </div>
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Compare use</span>
+                        <code>Use Compare when you want to see how two lenses read the same idea differently, such as a practical lens asking "will anyone buy this?" versus a systems lens asking "what dependencies or bottlenecks make the plan fragile?"</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel">
+                  <strong>What Analysis is for</strong>
+                  <ul class="guide-list guide-list--tight">
+                    <li>Uncertainty types</li>
+                    <li>Critique breakdowns</li>
+                    <li>Context alignment</li>
+                    <li>Comparison between readings</li>
+                    <li>Familiarity and repeated weak spots</li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="reports">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 5</p>
+                  <h3>Generate reports from the saved record</h3>
+                </div>
+                <span class="guide-step__tag">05</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ol class="guide-list">
+                    <li>Open the Reports panel.</li>
+                    <li>Generate <em>Session overview</em> first.</li>
+                    <li>Use <em>Contradictions</em> when you want failure points highlighted directly.</li>
+                    <li>Use <em>Research summary</em> when outside material is central to the work.</li>
+                    <li>Reopen older saved runs from history if you want to compare how the session changed over time.</li>
+                  </ol>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__result">
+                        <span class="guide-example__label">Use this report order</span>
+                        <code>1. Session overview: when you want the full state of the decision.
+2. Contradictions: when you suspect your plan sounds confident but does not hold together.
+3. Research summary: when outside evidence is now influencing the decision.</code>
+                      </div>
+                      <p>For the consulting example, the contradictions report is useful right before making a real yes-or-no decision.</p>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel guide-step__panel--signal">
+                  <strong>What to expect</strong>
+                  <p>Reports are session-scoped and grounded in what the app already saved. They are meant to summarize persisted work, not invent a new story detached from the record.</p>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="capture">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 6</p>
+                  <h3>Use Capture and attachments when text is not enough</h3>
+                </div>
+                <span class="guide-step__tag">06</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ul class="guide-list">
+                    <li>Click <em>Capture</em> to take a cropshot from the desktop drawer.</li>
+                    <li>Drag files into the composer or click <em>Attach files</em>.</li>
+                    <li>Check the <em>Ready to send</em> strip before you submit the next turn.</li>
+                    <li>Ask for text extraction when readable text is the main point.</li>
+                    <li>Ask for direct image inspection when layout, charts, screenshots, or visuals matter more than OCR.</li>
+                  </ul>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example capture prompt</span>
+                        <code>I captured a screenshot of my revenue spreadsheet. Inspect whether this forecast depends on unrealistic client conversion assumptions.</code>
+                      </div>
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example attachment prompt</span>
+                        <code>I attached a competitor service PDF. Pull out the claims that matter most for whether my consulting offer is actually differentiated.</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel">
+                  <strong>Good uses for Capture</strong>
+                  <ul class="guide-list guide-list--tight">
+                    <li>Charts and dashboards</li>
+                    <li>Document excerpts</li>
+                    <li>Claims shown in screenshots</li>
+                    <li>Visual evidence you want preserved with the session</li>
+                  </ul>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="reviewer">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 7</p>
+                  <h3>Import outside research into Reviewer</h3>
+                </div>
+                <span class="guide-step__tag">07</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Do this</strong>
+                  <ol class="guide-list">
+                    <li>Open Settings.</li>
+                    <li>Expand <em>Manual fallback and import tools</em>.</li>
+                    <li>Open <em>Research import</em>.</li>
+                    <li>Turn on <em>Allow GPT-Researcher imports</em>.</li>
+                    <li>Paste GPT-Researcher JSON or bullet output.</li>
+                    <li>Click <em>Import research</em>.</li>
+                    <li>Switch to the <em>Reviewer</em> lane and ask what the imported material actually proves, what it misses, and what still needs checking.</li>
+                  </ol>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example imported research</span>
+                        <code>- B2B SaaS onboarding budgets increased in mid-market software firms.
+- Founders complain that internal onboarding teams often lack implementation discipline.
+- Several case studies show retention gains after structured onboarding redesign.</code>
+                      </div>
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Reviewer prompt</span>
+                        <code>What in this imported research actually supports my consulting idea, what is only generic industry background, and what would still need direct proof from my own market?</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel guide-step__panel--signal">
+                  <strong>Why Reviewer exists</strong>
+                  <p>Outside evidence should not quietly blend into ordinary drafting. Reviewer keeps evidence review separate so support, gaps, and overreach stay visible.</p>
+                </aside>
+              </div>
+            </article>
+
+            <article class="guide-step" id="records-settings">
+              <div class="guide-step__topline">
+                <div>
+                  <p class="eyebrow">Step 8</p>
+                  <h3>Use Records for recall and Settings for control</h3>
+                </div>
+                <span class="guide-step__tag">08</span>
+              </div>
+              <div class="guide-step__grid">
+                <div class="guide-step__panel guide-step__panel--accent">
+                  <strong>Use Records when you want exact recall</strong>
+                  <ul class="guide-list">
+                    <li>Ask for saved questions, contradictions, reports, sessions, or captures.</li>
+                    <li>Use quick prompts when you want fast lookup over stored records.</li>
+                    <li>Turn on the interpretive layer if you want a grounded explanation on top of the exact result.</li>
+                  </ul>
+                  <strong style="margin-top: 1rem;">Use Settings when you want workspace control</strong>
+                  <ul class="guide-list guide-list--tight">
+                    <li>Pick Studio, Slate, or Forest theme.</li>
+                    <li>Choose compact or comfortable spacing density.</li>
+                    <li>Turn auto-naming on or off.</li>
+                    <li>Review model access, token source, and available models.</li>
+                    <li>Enable or disable follow-up question generation.</li>
+                  </ul>
+
+                  <details class="guide-example">
+                    <summary>See a concrete example</summary>
+                    <div class="guide-example__body">
+                      <div class="guide-example__prompt">
+                        <span class="guide-example__label">Example Records queries</span>
+                        <code>List unanswered questions from this consulting session.
+Show contradictions found in this session.
+Show saved reports for this session.</code>
+                      </div>
+                      <div class="guide-example__result">
+                        <span class="guide-example__label">Example Settings use</span>
+                        <code>If the session is becoming intense, keep the model the same and lower the mental load by switching to a calmer theme or comfortable density. If the app is asking too many new questions, turn question generation off for a while.</code>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+                <aside class="guide-step__panel">
+                  <strong>Remember</strong>
+                  <p>Your sessions, questions, reports, attachments, and preferences persist locally, so the app is meant to become a reusable workspace rather than a disposable chat window.</p>
+                </aside>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="guide-banner">
+            <div>
+              <p class="eyebrow">Need help?</p>
+              <h2>Use the support pages if the tutorial gets blocked.</h2>
+              <p>Use the Windows guide for install help and the troubleshooting guide for sign-in, startup, or runtime problems.</p>
+            </div>
+            <div class="guide-banner__actions">
+              <a class="button button--ghost" href="./windows-guide.md">Windows guide</a>
+              <a class="button button--ghost" href="./troubleshooting.md">Troubleshooting</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Argument Critic Tutorial</p>
+        <div class="footer__links">
+          <a href="./index.html">Docs home</a>
+          <a href="https://github.com/HoodieRat/argument-critic_v2">GitHub repository</a>
+          <a href="https://github.com/HoodieRat/argument-critic_v2/blob/main/README.md">README</a>
+          <a href="https://github.com/HoodieRat/argument-critic_v2/blob/main/INSTALL.md">Install guide</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
